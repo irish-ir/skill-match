@@ -1,12 +1,13 @@
-
+from dotenv import load_dotenv
+load_dotenv()
 import streamlit as st
 from pdfextractor import text_extractor
 from langchain_google_genai import ChatGoogleGenerativeAI
 
 import os
 # First lets configure the model 
-gemini_app_key=os.getenv('GOOGLE_API_KEY1')
-model=ChatGoogleGenerateAI(
+gemini_api_key=os.getenv('GOOGLE_API_KEY1')
+model=ChatGoogleGenerativeAI(
     model='gemini-2.5-flash-lite',
     api_key=gemini_api_key,
     temperature=0.9,
@@ -24,10 +25,10 @@ st.sidebar.success('Resume Uploaded Successfully')
 st.title(":orange[SKILLMATCH:-]:blue[AI Assisted Skill Matching Tool]")
 
 
-st.markdown('### :green [This application helps you to match and analyze your resume with the job description by the use of AI]')
+st.markdown('### :green[This application helps you to match and analyze your resume with the job description by the use of AI]')
 tips='''
 Follow these steps:-
-1.Upload your resume (PDF Only) in side bar
+1. Upload your resume (PDF Only) in side bar
 2. Copy and paste the job Description below.
 3. Click on submit the run the application '''
 
